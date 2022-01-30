@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/edit_nome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"
+
+        android:textSize="24sp"
+        android:hint="@string/task_name"/>
+
+    <TextView
+        android:id="@+id/text_cor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/edit_nome"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+
+        android:textSize="24sp"
+        android:text="@string/select_cor"/>
+    <RelativeLayout
+        android:id="@+id/relative_cores"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/text_cor"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/round_border"
+        android:padding="8dp">
+
+        <Button
+            android:id="@+id/button_color_gray"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+
+            app:backgroundTint="@color/gray"
+            style="@style/colorButton"/>
+
+        <Button
+            android:id="@+id/button_color_blue"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_toEndOf="@id/button_color_gray"
+            android:layout_marginStart="12dp"
+
+            app:backgroundTint="@color/teal_200"
+            style="@style/colorButton"/>
+
+        <Button
+            android:id="@+id/button_color_green"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_toEndOf="@id/button_color_blue"
+            android:layout_marginStart="12dp"
+
+            app:backgroundTint="@color/green"
+            style="@style/colorButton"/>
+
+        <Button
+            android:id="@+id/button_color_yellow"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_toEndOf="@id/button_color_green"
+            android:layout_marginStart="12dp"
+
+            app:backgroundTint="@color/yellow"
+            style="@style/colorButton"/>
+
+        <Button
+            android:id="@+id/button_color_orange"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_toEndOf="@id/button_color_yellow"
+            android:layout_marginStart="12dp"
+
+            app:backgroundTint="@color/orange"
+            style="@style/colorButton"/>
+
+        <Button
+            android:id="@+id/button_color_red"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_toEndOf="@id/button_color_orange"
+            android:layout_marginStart="12dp"
+
+            app:backgroundTint="@color/red"
+            style="@style/colorButton"/>
+
+        <Button
+            android:id="@+id/button_color_brown"
+            style="@style/colorButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="12dp"
+
+            android:layout_toEndOf="@id/button_color_red"
+            app:backgroundTint="@color/brown" />
+
+        <Button
+            android:id="@+id/button_color_purple"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_toEndOf="@id/button_color_brown"
+            android:layout_marginStart="12dp"
+
+            app:backgroundTint="@color/purple_500"
+            style="@style/colorButton"/>
+
+        <Button
+            android:id="@+id/button_color_dark_pink"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_toEndOf="@id/button_color_purple"
+            android:layout_marginStart="8dp"
+
+            app:backgroundTint="@color/pink"
+            style="@style/colorButton"/>
+
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/relative_cores"
+        app:layout_constraintTop_toBottomOf="@+id/relative_cores"
+        app:layout_constraintEnd_toEndOf="@+id/relative_cores"
+        android:layout_marginTop="84dp"
+
+        android:text="@string/task_save_button"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

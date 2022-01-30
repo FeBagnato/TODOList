@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">TODO List</string>
+    <string name="app_version">0.1</string>
+    <string name="app_developer">Desenvolvedor: Felipe Bagnato</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="menu_tarefas">Tarefas</string>
+    <string name="menu_cadernos">Cadernos</string>
+    <string name="menu_sobre">Sobre</string>
+    <string name="sem_data">sem data</string>
+    <string name="task_name">Nome</string>
+    <string name="task_description">Descricao</string>
+    <string name="task_date">Selecione a data limite</string>
+    <string name="task_save_button">Salvar</string>
+    <string name="botao_excluir">Excluir</string>
+    <string name="botao_editar">Editar</string>
+    <string name="select_cor">Cor</string>
+</resources>
