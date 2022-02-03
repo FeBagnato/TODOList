@@ -3,18 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_tarefas">
 
     <fragment
-        android:id="@+id/nav_home"
+        android:id="@+id/nav_tarefas"
         android:name="felipeBagnato.personal.todoList.ui.tarefas.TarefasFragment"
         android:label="@string/menu_tarefas"
         tools:layout="@layout/fragment_tarefas" />
 
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/nav_cadernos"
         android:name="felipeBagnato.personal.todoList.ui.gallery.GalleryFragment"
         android:label="@string/menu_cadernos"
         tools:layout="@layout/fragment_cadernos" />
+
+    <fragment
+        android:id="@+id/nav_sobre"
+        android:name="felipeBagnato.personal.todoList.ui.sobre.SobreFragment"
+        android:label="@string/menu_sobre"
+        tools:layout="@layout/fragment_sobre"/>
 
 </navigation>

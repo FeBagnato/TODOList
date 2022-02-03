@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import felipeBagnato.personal.todoList.R
+import felipeBagnato.personal.todoList.ui.tarefas.tarefasForm.TarefasFormActivity
 import felipeBagnato.personal.todoList.ui.tarefas.tarefasInfo.TarefaInfoActivity
 
 class TarefasFragment : Fragment(){
@@ -17,6 +19,11 @@ class TarefasFragment : Fragment(){
 
         val root = inflater.inflate(R.layout.fragment_tarefas, container, false)
         val tarefaAdapter = TarefaAdapter()
+
+        val fab: FloatingActionButton = root.findViewById(R.id.fab)
+        fab.setOnClickListener{
+            startActivity(Intent(root.context, TarefasFormActivity::class.java))
+        }
 
         val recycler = root.findViewById<RecyclerView>(R.id.recycler_view_tarefas)
         recycler.layoutManager = LinearLayoutManager(root.context)
