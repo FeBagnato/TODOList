@@ -28,4 +28,8 @@
     <style name="DialogButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
         <item name="android:textColor">@color/teal_200</item>
     </style>
+
+    <style name = "MenuStyle">
+        <item name="colorPrimary">@color/purple_200</item>
+    </style>
 </resources>
