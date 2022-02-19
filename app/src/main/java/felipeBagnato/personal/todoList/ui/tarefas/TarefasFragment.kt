@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import felipeBagnato.personal.todoList.R
+import felipeBagnato.personal.todoList.constants.DatabaseConstants
 import felipeBagnato.personal.todoList.ui.tarefas.tarefasForm.TarefasFormActivity
 import felipeBagnato.personal.todoList.ui.tarefas.tarefasInfo.TarefaInfoActivity
 
@@ -43,7 +44,7 @@ class TarefasFragment : Fragment(){
                 val intent = Intent(root.context, TarefaInfoActivity::class.java)
                 val bundle = Bundle()
 
-                bundle.putInt("id", id)
+                bundle.putInt(DatabaseConstants.TAREFA.COLUNA.ID, id)
                 intent.putExtras(bundle)
                 startActivity(intent)
             }

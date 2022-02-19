@@ -23,13 +23,13 @@ class TarefaInfoViewModel(val context: Context): ViewModel(){
 
     fun excluirTarefa(tarefa: TarefaEntity){
         AlertDialog.Builder(context, R.style.alertDialogStyle)
-            .setTitle("Remover Tarefa")
-            .setMessage("Você deseja remover essa tarefa?")
-            .setPositiveButton("Sim"){dialog, which ->
+            .setTitle(R.string.alert_dialog_excluir_titulo)
+            .setMessage(R.string.alert_dialog_excluir_mensagem)
+            .setPositiveButton(R.string.alert_dialog_positive){dialog, which ->
                 viewModelScope.launch{
                     excluir.value = tarefaDAO.delete(tarefa)
                 }
             }
-            .setNeutralButton("Não", null).show()
+            .setNeutralButton(R.string.alert_dialog_neutral, null).show()
     }
 }

@@ -7,6 +7,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import felipeBagnato.personal.todoList.R
+import felipeBagnato.personal.todoList.constants.DatabaseConstants
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -67,26 +68,28 @@ class TarefasFormActivity: AppCompatActivity(), View.OnClickListener,
 
     fun observar(){
         val nomeObserver = Observer<Boolean>{
-            Toast.makeText(this, "Insira o nome da tarefa!", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, R.string.nome_vazio_tarefa, Toast.LENGTH_LONG).show()
         }
         val salvarObserver = Observer<Long>{
             if(it >= 0) {
-                Toast.makeText(this, "Tarefa salva!", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, R.string.sucesso_salvar_tarefa,
+                    Toast.LENGTH_LONG).show()
+
                 finish()
             }
             else{
-                Toast.makeText(this, "Falha ao salvar a tarefa!",
-                    Toast.LENGTH_LONG).show()
+                Toast.makeText(this, R.string.falha_salvar_tarefa, Toast.LENGTH_LONG).show()
             }
         }
         val atualizarObserver = Observer<Int>{
             if(it == 1) {
-                Toast.makeText(this, "Tarefa editada!", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, R.string.sucesso_editar_tarefa,
+                    Toast.LENGTH_LONG).show()
+
                 finish()
             }
             else{
-                Toast.makeText(this, "Nao foi possivel editar essa tarefa!",
-                    Toast.LENGTH_LONG).show()
+                Toast.makeText(this, R.string.falha_editar_tarefa, Toast.LENGTH_LONG).show()
             }
         }
 
@@ -104,10 +107,10 @@ class TarefasFormActivity: AppCompatActivity(), View.OnClickListener,
         val bundle = intent.extras
 
         if(bundle != null){
-            idPadrao = bundle.getInt("id")
-            nome.setText(bundle.getString("nome"))
-            descricao.setText(bundle.getString("descricao"))
-            textData.text = bundle.getString("data")
+            idPadrao = bundle.getInt(DatabaseConstants.TAREFA.COLUNA.ID)
+            nome.setText(bundle.getString(DatabaseConstants.TAREFA.COLUNA.NOME))
+            descricao.setText(bundle.getString(DatabaseConstants.TAREFA.COLUNA.DESC))
+            textData.text = bundle.getString(DatabaseConstants.TAREFA.COLUNA.DATA)
         }
     }
 }

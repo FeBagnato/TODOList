@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import felipeBagnato.personal.todoList.R
+import felipeBagnato.personal.todoList.constants.DatabaseConstants
 import felipeBagnato.personal.todoList.repository.TarefaEntity
 import felipeBagnato.personal.todoList.ui.tarefas.tarefasForm.TarefasFormActivity
 
@@ -46,10 +47,10 @@ class TarefaInfoActivity: AppCompatActivity(), View.OnClickListener{
             val intent = Intent(this, TarefasFormActivity::class.java)
             val bundle = Bundle()
 
-            bundle.putInt("id", tarefa.id)
-            bundle.putString("nome", tarefa.nome)
-            bundle.putString("descricao", tarefa.descricao)
-            bundle.putString("data", tarefa.data)
+            bundle.putInt(DatabaseConstants.TAREFA.COLUNA.ID, tarefa.id)
+            bundle.putString(DatabaseConstants.TAREFA.COLUNA.NOME, tarefa.nome)
+            bundle.putString(DatabaseConstants.TAREFA.COLUNA.DESC, tarefa.descricao)
+            bundle.putString(DatabaseConstants.TAREFA.COLUNA.DATA, tarefa.data)
             intent.putExtras(bundle)
             startActivity(intent)
         }
@@ -69,11 +70,13 @@ class TarefaInfoActivity: AppCompatActivity(), View.OnClickListener{
         }
         val excluirObserver = Observer<Int>{
             if(it == 1){
-                Toast.makeText(this, "Tarefa excluida!", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, R.string.sucesso_excluir_tarefa,
+                    Toast.LENGTH_LONG).show()
+
                 finish()
             }
             else{
-                Toast.makeText(this, "Não foi possível excluir esta tarefa",
+                Toast.makeText(this, R.string.falha_excluir_tarefa,
                     Toast.LENGTH_LONG).show()
             }
         }
@@ -91,7 +94,7 @@ class TarefaInfoActivity: AppCompatActivity(), View.OnClickListener{
         val bundle = intent.extras
 
         if(bundle != null){
-            val tarefaID = bundle.getInt("id")
+            val tarefaID = bundle.getInt(DatabaseConstants.TAREFA.COLUNA.ID)
             mViewModel.carregarTarefa(tarefaID)
         }
     }

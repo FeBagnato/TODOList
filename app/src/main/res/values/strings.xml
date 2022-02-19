@@ -17,4 +17,16 @@
     <string name="botao_excluir">Excluir</string>
     <string name="botao_editar">Editar</string>
     <string name="select_cor">Cor</string>
+
+    <string name="alert_dialog_excluir_titulo">Remover Tarefa</string>
+    <string name="alert_dialog_excluir_mensagem">Você deseja remover essa tarefa?</string>
+    <string name="alert_dialog_positive">Sim</string>
+    <string name="alert_dialog_neutral">Não</string>
+    <string name="sucesso_excluir_tarefa">Tarefa excluida!</string>
+    <string name="falha_excluir_tarefa">Não foi possível excluir esta tarefa</string>
+    <string name="nome_vazio_tarefa">Insira o nome da tarefa!</string>
+    <string name="sucesso_salvar_tarefa">Tarefa salva!</string>
+    <string name="falha_salvar_tarefa">Falha ao salvar a tarefa!</string>
+    <string name="sucesso_editar_tarefa">Tarefa editada!</string>
+    <string name="falha_editar_tarefa">Nao foi possivel editar essa tarefa!</string>
 </resources>

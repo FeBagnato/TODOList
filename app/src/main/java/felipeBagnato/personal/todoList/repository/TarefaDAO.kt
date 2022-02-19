@@ -2,16 +2,20 @@ package felipeBagnato.personal.todoList.repository
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import felipeBagnato.personal.todoList.constants.DatabaseConstants
 
 @Dao
 interface TarefaDAO{
-    @Query("SELECT * FROM Tarefa")
+    @Query("SELECT * FROM ${DatabaseConstants.TAREFA.NOME_TABELA}")
     fun getAll(): LiveData<List<TarefaEntity>>
 
-    @Query("SELECT * FROM Tarefa WHERE id LIKE :id")
+    @Query("SELECT * FROM ${DatabaseConstants.TAREFA.NOME_TABELA} " +
+            "WHERE ${DatabaseConstants.TAREFA.COLUNA.ID} LIKE :id")
     suspend fun getOne(id: Int): TarefaEntity
 
-    @Query("UPDATE Tarefa SET feito=:estado WHERE id=:id")
+    @Query("UPDATE ${DatabaseConstants.TAREFA.NOME_TABELA} " +
+            "SET ${DatabaseConstants.TAREFA.COLUNA.DONE} = :estado " +
+            "WHERE ${DatabaseConstants.TAREFA.COLUNA.ID} = :id")
     fun changeState(id: Int, estado: Boolean)
 
     @Insert
