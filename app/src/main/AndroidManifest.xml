@@ -9,8 +9,14 @@
         android:roundIcon="@mipmap/ic_todo_list"
         android:supportsRtl="true"
         android:theme="@style/Theme.TODOList">
-        <activity android:name=".ui.tarefas.tarefasForm.TarefasFormActivity"/>
-        <activity android:name=".ui.tarefas.tarefasInfo.TarefaInfoActivity"/>
+        <activity
+            android:name=".ui.tarefas.tarefasForm.TarefasFormActivity"
+            android:label="@string/label_form_activity"
+            android:parentActivityName=".ui.MainActivity"/>
+        <activity
+            android:name=".ui.tarefas.tarefasInfo.TarefaInfoActivity"
+            android:label="@string/label_info_activity"
+            android:parentActivityName=".ui.MainActivity"/>
         <activity
             android:name=".ui.MainActivity"
             android:exported="true"
