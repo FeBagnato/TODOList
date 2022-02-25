@@ -13,6 +13,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
 
+        android:inputType="textCapSentences"
         android:hint="@string/task_name"/>
 
     <EditText
@@ -26,6 +27,7 @@
 
         android:background="@drawable/round_border"
         android:gravity="start"
+        android:inputType="textMultiLine|textCapSentences"
         android:hint="@string/task_description"
         android:maxLength="199"/>
 
