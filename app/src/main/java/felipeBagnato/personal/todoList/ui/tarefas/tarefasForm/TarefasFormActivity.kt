@@ -1,6 +1,7 @@
 package felipeBagnato.personal.todoList.ui.tarefas.tarefasForm
 
 import android.app.DatePickerDialog
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.View
 import android.widget.*
@@ -31,6 +32,10 @@ class TarefasFormActivity: AppCompatActivity(), View.OnClickListener,
         descricao = findViewById(R.id.edit_descricao)
         textData = findViewById(R.id.text_data)
         salvarBtn = findViewById(R.id.button_salvar)
+
+        supportActionBar?.setBackgroundDrawable(
+            ColorDrawable(getColor(R.color.purple_500))
+        )
 
         listener()
         carregarDados()

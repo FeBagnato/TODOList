@@ -1,6 +1,7 @@
 package felipeBagnato.personal.todoList.ui.tarefas.tarefasInfo
 
 import android.content.Intent
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
@@ -32,6 +33,10 @@ class TarefaInfoActivity: AppCompatActivity(), View.OnClickListener{
         dataTarefa = findViewById(R.id.text_data)
         excluirBtn = findViewById(R.id.image_excluir)
         editarBtn = findViewById(R.id.image_edit)
+
+        supportActionBar?.setBackgroundDrawable(
+            ColorDrawable(getColor(R.color.purple_500))
+        )
 
         listener()
         observar()
