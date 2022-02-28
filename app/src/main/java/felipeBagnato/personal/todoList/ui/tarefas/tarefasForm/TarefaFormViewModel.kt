@@ -24,7 +24,7 @@ class TarefaFormViewModel(context: Context): ViewModel(){
 
         if(tarefa.data.length >= 11) tarefa.data = ""
 
-        if(tarefa.nome.isEmpty()){
+        if(tarefa.nome.isBlank()){
             isNomeVazio.value = true
         }
         else{
