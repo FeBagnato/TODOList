@@ -10,7 +10,8 @@
     <string name="menu_cadernos">Cadernos</string>
     <string name="menu_sobre">Sobre</string>
     <string name="label_info_activity">DETALHES</string>
-    <string name="label_form_activity">Criar/Editar Tarefa</string>
+    <string name="label_form_criar">Criar Tarefa</string>
+    <string name="label_form_editar">Editar Tarefa</string>
     <string name="sem_data">sem data</string>
     <string name="task_name">Nome</string>
     <string name="task_description">Descricao</string>

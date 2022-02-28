@@ -36,6 +36,7 @@ class TarefasFormActivity: AppCompatActivity(), View.OnClickListener,
         supportActionBar?.setBackgroundDrawable(
             ColorDrawable(getColor(R.color.purple_500))
         )
+        supportActionBar?.title = getString(R.string.label_form_criar)
 
         listener()
         carregarDados()
@@ -116,6 +117,8 @@ class TarefasFormActivity: AppCompatActivity(), View.OnClickListener,
             nome.setText(bundle.getString(DatabaseConstants.TAREFA.COLUNA.NOME))
             descricao.setText(bundle.getString(DatabaseConstants.TAREFA.COLUNA.DESC))
             textData.text = bundle.getString(DatabaseConstants.TAREFA.COLUNA.DATA)
+
+            supportActionBar?.title = getString(R.string.label_form_editar)
         }
     }
 }
