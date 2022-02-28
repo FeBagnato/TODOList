@@ -118,6 +118,8 @@ class TarefasFormActivity: AppCompatActivity(), View.OnClickListener,
             descricao.setText(bundle.getString(DatabaseConstants.TAREFA.COLUNA.DESC))
             textData.text = bundle.getString(DatabaseConstants.TAREFA.COLUNA.DATA)
 
+            if(textData.text == "") textData.text = getString(R.string.task_date)
+
             supportActionBar?.title = getString(R.string.label_form_editar)
         }
     }
