@@ -121,6 +121,7 @@ class TarefasFormActivity: AppCompatActivity(), View.OnClickListener,
             if(textData.text == "") textData.text = getString(R.string.task_date)
 
             supportActionBar?.title = getString(R.string.label_form_editar)
+            salvarBtn.text = getString(R.string.botao_editar)
         }
     }
 }
