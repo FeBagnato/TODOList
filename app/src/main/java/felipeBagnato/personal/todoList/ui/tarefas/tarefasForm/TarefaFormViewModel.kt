@@ -22,7 +22,7 @@ class TarefaFormViewModel(context: Context): ViewModel(){
             this.data = data
         }
 
-        if(tarefa.data.length >= 11) tarefa.data = ""
+        if(tarefa.data.length >= 13) tarefa.data = ""
 
         if(tarefa.nome.isBlank()){
             isNomeVazio.value = true

@@ -9,7 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import felipeBagnato.personal.todoList.R
 import felipeBagnato.personal.todoList.constants.DatabaseConstants
-import java.text.SimpleDateFormat
+import java.text.DateFormat.MEDIUM
+import java.text.DateFormat.getDateInstance
 import java.util.*
 
 class TarefasFormActivity: AppCompatActivity(), View.OnClickListener,
@@ -19,7 +20,7 @@ class TarefasFormActivity: AppCompatActivity(), View.OnClickListener,
     lateinit var descricao: EditText
     lateinit var textData: TextView
     lateinit var salvarBtn: Button
-    private val dataFormat = SimpleDateFormat("dd/MM/yyyy")
+    private val dataFormat = getDateInstance(MEDIUM)
     private var idPadrao = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
