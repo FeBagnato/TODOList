@@ -2,9 +2,6 @@
     <string name="app_name">TODO List</string>
     <string name="app_version">0.1</string>
     <string name="app_developer">Desenvolvedor: Felipe Bagnato</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_desc">Navigation header</string>
 
     <string name="menu_tarefas">Tarefas</string>
     <string name="menu_cadernos">Cadernos</string>
