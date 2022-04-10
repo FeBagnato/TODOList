@@ -16,10 +16,10 @@ import java.util.*
 class TarefasFormActivity: AppCompatActivity(), View.OnClickListener,
     DatePickerDialog.OnDateSetListener{
     private lateinit var mViewModel: TarefaFormViewModel
-    lateinit var nome: EditText
-    lateinit var descricao: EditText
-    lateinit var textData: TextView
-    lateinit var salvarBtn: Button
+    private lateinit var nome: EditText
+    private lateinit var descricao: EditText
+    private lateinit var textData: TextView
+    private lateinit var salvarBtn: Button
     private val dataFormat = getDateInstance(MEDIUM)
     private var idPadrao = 0
 
@@ -64,7 +64,7 @@ class TarefasFormActivity: AppCompatActivity(), View.OnClickListener,
         textData.text = dataString
     }
 
-    fun mostrarDatePicker(){
+    private fun mostrarDatePicker(){
         val dataAtual = Calendar.getInstance()
         val ano = dataAtual.get(Calendar.YEAR)
         val mes = dataAtual.get(Calendar.MONTH)
@@ -73,7 +73,7 @@ class TarefasFormActivity: AppCompatActivity(), View.OnClickListener,
         DatePickerDialog(this, this, ano, mes, dia).show()
     }
 
-    fun observar(){
+    private fun observar(){
         val nomeObserver = Observer<Boolean>{
             Toast.makeText(this, R.string.nome_vazio_tarefa, Toast.LENGTH_LONG).show()
         }
@@ -105,12 +105,12 @@ class TarefasFormActivity: AppCompatActivity(), View.OnClickListener,
         mViewModel.atualizarTarefa.observe(this, atualizarObserver)
     }
 
-    fun listener(){
+    private fun listener(){
         salvarBtn.setOnClickListener(this)
         textData.setOnClickListener(this)
     }
 
-    fun carregarDados(){
+    private fun carregarDados(){
         val bundle = intent.extras
 
         if(bundle != null){
