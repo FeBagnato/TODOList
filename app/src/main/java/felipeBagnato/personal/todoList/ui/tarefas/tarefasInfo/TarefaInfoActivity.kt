@@ -15,14 +15,14 @@ import felipeBagnato.personal.todoList.repository.TarefaEntity
 import felipeBagnato.personal.todoList.ui.tarefas.tarefasForm.TarefasFormActivity
 
 class TarefaInfoActivity: AppCompatActivity(), View.OnClickListener{
-    val mViewModel = TarefaInfoViewModel(this)
+    private val mViewModel = TarefaInfoViewModel(this)
 
-    lateinit var tarefa: TarefaEntity
-    lateinit var nomeTarefa: TextView
-    lateinit var descricaoTarefa: TextView
-    lateinit var dataTarefa: TextView
-    lateinit var excluirBtn: ImageView
-    lateinit var editarBtn: ImageView
+    private lateinit var tarefa: TarefaEntity
+    private lateinit var nomeTarefa: TextView
+    private lateinit var descricaoTarefa: TextView
+    private lateinit var dataTarefa: TextView
+    private lateinit var excluirBtn: ImageView
+    private lateinit var editarBtn: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
@@ -66,7 +66,7 @@ class TarefaInfoActivity: AppCompatActivity(), View.OnClickListener{
         carregarDados()
     }
 
-    fun observar(){
+    private fun observar(){
         val tarefaObserver = Observer<TarefaEntity>{
             tarefa = it
             nomeTarefa.text = it.nome
@@ -90,12 +90,12 @@ class TarefaInfoActivity: AppCompatActivity(), View.OnClickListener{
         mViewModel.excluir.observe(this, excluirObserver)
     }
 
-    fun listener(){
+    private fun listener(){
         excluirBtn.setOnClickListener(this)
         editarBtn.setOnClickListener(this)
     }
 
-    fun carregarDados(){
+    private fun carregarDados(){
         val bundle = intent.extras
 
         if(bundle != null){
