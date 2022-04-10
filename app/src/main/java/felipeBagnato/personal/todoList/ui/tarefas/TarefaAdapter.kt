@@ -7,8 +7,8 @@ import felipeBagnato.personal.todoList.R
 import felipeBagnato.personal.todoList.repository.TarefaEntity
 
 class TarefaAdapter: RecyclerView.Adapter<TarefaViewHolder>(){
-    var listTarefa: List<TarefaEntity> = arrayListOf()
-    lateinit var listener: TarefaListener
+    private var listTarefa: List<TarefaEntity> = arrayListOf()
+    private lateinit var listener: TarefaListener
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TarefaViewHolder {
         val item = LayoutInflater.from(parent.context).inflate(R.layout.tarefa_item,
