@@ -11,7 +11,7 @@ import felipeBagnato.personal.todoList.repository.TarefaEntity
 import kotlinx.coroutines.launch
 
 class TarefaInfoViewModel(val context: Context): ViewModel(){
-    val tarefaDAO = TarefaDatabase.getDatabase(context)
+    private val tarefaDAO = TarefaDatabase.getDatabase(context)
     val carregar = MutableLiveData<TarefaEntity>()
     val excluir = MutableLiveData<Int>()
 
