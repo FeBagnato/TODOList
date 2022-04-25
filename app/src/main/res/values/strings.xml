@@ -17,6 +17,7 @@
     <string name="botao_excluir">Excluir</string>
     <string name="botao_editar">Editar</string>
     <string name="select_cor">Cor</string>
+    <string name="date_format">dd MMM, yyyy</string>
 
     <string name="alert_dialog_excluir_titulo">Remover Tarefa</string>
     <string name="alert_dialog_excluir_mensagem">Você deseja remover essa tarefa?</string>

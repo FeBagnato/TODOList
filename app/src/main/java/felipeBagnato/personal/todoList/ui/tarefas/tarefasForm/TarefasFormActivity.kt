@@ -1,5 +1,6 @@
 package felipeBagnato.personal.todoList.ui.tarefas.tarefasForm
 
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -9,8 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import felipeBagnato.personal.todoList.R
 import felipeBagnato.personal.todoList.constants.DatabaseConstants
-import java.text.DateFormat.MEDIUM
-import java.text.DateFormat.getDateInstance
+import java.text.SimpleDateFormat
 import java.util.*
 
 class TarefasFormActivity: AppCompatActivity(), View.OnClickListener,
@@ -20,7 +20,7 @@ class TarefasFormActivity: AppCompatActivity(), View.OnClickListener,
     private lateinit var descricao: EditText
     private lateinit var textData: TextView
     private lateinit var salvarBtn: Button
-    private val dataFormat = getDateInstance(MEDIUM)
+    private lateinit var dataFormat: SimpleDateFormat
     private var idPadrao = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +33,9 @@ class TarefasFormActivity: AppCompatActivity(), View.OnClickListener,
         descricao = findViewById(R.id.edit_descricao)
         textData = findViewById(R.id.text_data)
         salvarBtn = findViewById(R.id.button_salvar)
+
+        @SuppressLint("SimpleDateFormat")
+        dataFormat = SimpleDateFormat(getString(R.string.date_format))
 
         supportActionBar?.setBackgroundDrawable(
             ColorDrawable(getColor(R.color.purple_500))
