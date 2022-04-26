@@ -19,6 +19,7 @@ class TarefasFormActivity: AppCompatActivity(), View.OnClickListener,
     private lateinit var nome: EditText
     private lateinit var descricao: EditText
     private lateinit var textData: TextView
+    private lateinit var textDeleteDate: TextView
     private lateinit var salvarBtn: Button
     private lateinit var dataFormat: SimpleDateFormat
     private var idPadrao = 0
@@ -32,6 +33,7 @@ class TarefasFormActivity: AppCompatActivity(), View.OnClickListener,
         nome = findViewById(R.id.edit_nome)
         descricao = findViewById(R.id.edit_descricao)
         textData = findViewById(R.id.text_data)
+        textDeleteDate = findViewById(R.id.text_delete_date)
         salvarBtn = findViewById(R.id.button_salvar)
 
         @SuppressLint("SimpleDateFormat")
@@ -57,6 +59,10 @@ class TarefasFormActivity: AppCompatActivity(), View.OnClickListener,
         else if(v.id == R.id.text_data){
             mostrarDatePicker()
         }
+        else if(v.id == R.id.text_delete_date){
+            textDeleteDate.text = ""
+            textData.text = getString(R.string.task_date)
+        }
     }
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
@@ -65,6 +71,7 @@ class TarefasFormActivity: AppCompatActivity(), View.OnClickListener,
 
         val dataString = dataFormat.format(calendario.time)
         textData.text = dataString
+        textDeleteDate.text = "X"
     }
 
     private fun mostrarDatePicker(){
@@ -111,6 +118,7 @@ class TarefasFormActivity: AppCompatActivity(), View.OnClickListener,
     private fun listener(){
         salvarBtn.setOnClickListener(this)
         textData.setOnClickListener(this)
+        textDeleteDate.setOnClickListener(this)
     }
 
     private fun carregarDados(){
@@ -123,6 +131,7 @@ class TarefasFormActivity: AppCompatActivity(), View.OnClickListener,
             textData.text = bundle.getString(DatabaseConstants.TAREFA.COLUNA.DATA)
 
             if(textData.text == "") textData.text = getString(R.string.task_date)
+            else textDeleteDate.text = "X"
 
             supportActionBar?.title = getString(R.string.label_form_editar)
             salvarBtn.text = getString(R.string.botao_editar)
