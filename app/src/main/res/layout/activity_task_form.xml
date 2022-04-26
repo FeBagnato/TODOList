@@ -33,7 +33,7 @@
 
     <TextView
         android:id="@+id/text_data"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edit_descricao"
@@ -42,13 +42,26 @@
         android:textSize="18sp"
         android:text="@string/task_date"/>
 
+    <TextView
+        android:id="@+id/text_delete_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/text_data"
+        app:layout_constraintTop_toBottomOf="@id/edit_descricao"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="18dp"
+
+        android:textSize="18sp"
+        android:textColor="@color/gray"
+        />
+
     <Button
         android:id="@+id/button_salvar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/text_data"
-        app:layout_constraintStart_toStartOf="@id/text_data"
-        app:layout_constraintEnd_toEndOf="@id/text_data"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="42dp"
 
         android:backgroundTint="@color/gray"
