@@ -11,7 +11,7 @@
     <string name="label_form_editar">Editar Tarefa</string>
     <string name="sem_data">sem data</string>
     <string name="task_name">Nome</string>
-    <string name="task_description">Descricao</string>
+    <string name="task_description">Descricao (max: 200 caracteres)</string>
     <string name="task_date">Selecione a data limite</string>
     <string name="task_save_button">Salvar</string>
     <string name="botao_excluir">Excluir</string>
