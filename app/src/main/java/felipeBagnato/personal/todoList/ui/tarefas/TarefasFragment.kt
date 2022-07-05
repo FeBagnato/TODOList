@@ -32,6 +32,7 @@ class TarefasFragment : Fragment(){
 
         val mViewModel = TarefasViewModel(root.context)
         mViewModel.pegarTarefas().observe(viewLifecycleOwner){
+            //TODO: Add ordenação aqui
             tarefaAdapter.atualizar(it)
         }
 
