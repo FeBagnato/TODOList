@@ -5,6 +5,8 @@ import android.content.Context
 import felipeBagnato.personal.todoList.R
 import felipeBagnato.personal.todoList.repository.TarefaEntity
 import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 abstract class TarefaSorting{
     companion object{
@@ -21,33 +23,53 @@ abstract class TarefaSorting{
             val nullDateList = mutableListOf<TarefaEntity>();
             while(list.isNotEmpty()){
                 val dateFormat = SimpleDateFormat(context.getString(R.string.date_format));
-                var menorValor = dateFormat.parse(list[0].data);
                 var tarefa = TarefaEntity();
 
+                var menorValor = try{
+                    dateFormat.parse(list[0].data);
+                }
+                catch(e: Exception){
+                    null;
+                }
+
                 for(i in list){
-                    val date = dateFormat.parse(i.data);
+                    val date = try{
+                        dateFormat.parse(i.data);
+                    }
+                    catch(e: Exception){
+                        null;
+                    }
+
                     if(menorValor != null){
-                        if(menorValor.after(date) || menorValor == date){
-                            menorValor = date;
-                            tarefa = i;
+                        try{
+                            if (menorValor.after(date) || menorValor == date) {
+                                menorValor = date;
+                                tarefa = i;
+                            }
                         }
+                        catch(e: Exception){}
                     }
                     else{
-                        menorValor = dateFormat.parse(i.data)
+                        menorValor = try {
+                            dateFormat.parse(i.data)
+                        }
+                        catch(e: Exception){
+                            null
+                        }
                         tarefa = i;
                     }
 
                     if(date == null){
                         nullDateList.add(i);
-                        list.remove(i);
                     }
                 }
                 newList.add(tarefa);
                 list.remove(tarefa);
+
+                for(i in nullDateList) list.remove(i)
             }
 
-            newList += newList + nullDateList;
-            return newList.toList();
+            return (newList + nullDateList).toList();
         }
 
         fun alfabetica(list: List<TarefaEntity>): List<TarefaEntity>{
