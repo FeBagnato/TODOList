@@ -1,6 +1,5 @@
 package felipeBagnato.personal.todoList.ui.tarefas
 
-
 import android.content.Context
 import felipeBagnato.personal.todoList.R
 import felipeBagnato.personal.todoList.repository.TarefaEntity
@@ -71,8 +70,22 @@ abstract class TarefaSorting{
             return (newList + nullDateList).toList()
         }
 
-        fun alfabetica(list: List<TarefaEntity>): List<TarefaEntity>{
-            return list
+        fun alfabetica(list: MutableList<TarefaEntity>): List<TarefaEntity>{
+            val newList: MutableList<TarefaEntity> = arrayListOf()
+            while(list.isNotEmpty()){
+                var menorNome = list[0].nome
+                var tarefa = TarefaEntity()
+                for(i in list){
+                    if(i.nome.lowercase().compareTo(menorNome.lowercase()) <= 0){
+                        menorNome = i.nome
+                        tarefa = i
+                    }
+                }
+                newList.add(tarefa)
+                list.remove(tarefa)
+            }
+
+            return newList.toList()
         }
     }
 }
