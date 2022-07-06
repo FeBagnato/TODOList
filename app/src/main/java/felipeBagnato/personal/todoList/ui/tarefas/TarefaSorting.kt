@@ -5,46 +5,45 @@ import android.content.Context
 import felipeBagnato.personal.todoList.R
 import felipeBagnato.personal.todoList.repository.TarefaEntity
 import java.text.SimpleDateFormat
-import java.util.*
 import kotlin.collections.ArrayList
 
 abstract class TarefaSorting{
     companion object{
         fun maisAntigo(list: List<TarefaEntity>): List<TarefaEntity>{
-            return list;
+            return list
         }
 
         fun maisNovo(list: List<TarefaEntity>): List<TarefaEntity>{
-            return list.reversed();
+            return list.reversed()
         }
 
         fun dataLimite(list: MutableList<TarefaEntity>, context: Context): List<TarefaEntity>{
-            val newList: MutableList<TarefaEntity> = ArrayList<TarefaEntity>();
-            val nullDateList = mutableListOf<TarefaEntity>();
+            val newList: MutableList<TarefaEntity> = ArrayList()
+            val nullDateList = mutableListOf<TarefaEntity>()
             while(list.isNotEmpty()){
-                val dateFormat = SimpleDateFormat(context.getString(R.string.date_format));
-                var tarefa = TarefaEntity();
+                val dateFormat = SimpleDateFormat(context.getString(R.string.date_format))
+                var tarefa = TarefaEntity()
 
                 var menorValor = try{
-                    dateFormat.parse(list[0].data);
+                    dateFormat.parse(list[0].data)
                 }
                 catch(e: Exception){
-                    null;
+                    null
                 }
 
                 for(i in list){
                     val date = try{
-                        dateFormat.parse(i.data);
+                        dateFormat.parse(i.data)
                     }
                     catch(e: Exception){
-                        null;
+                        null
                     }
 
                     if(menorValor != null){
                         try{
                             if (menorValor.after(date) || menorValor == date) {
-                                menorValor = date;
-                                tarefa = i;
+                                menorValor = date
+                                tarefa = i
                             }
                         }
                         catch(e: Exception){}
@@ -56,24 +55,24 @@ abstract class TarefaSorting{
                         catch(e: Exception){
                             null
                         }
-                        tarefa = i;
+                        tarefa = i
                     }
 
                     if(date == null){
-                        nullDateList.add(i);
+                        nullDateList.add(i)
                     }
                 }
-                newList.add(tarefa);
-                list.remove(tarefa);
+                newList.add(tarefa)
+                list.remove(tarefa)
 
                 for(i in nullDateList) list.remove(i)
             }
 
-            return (newList + nullDateList).toList();
+            return (newList + nullDateList).toList()
         }
 
         fun alfabetica(list: List<TarefaEntity>): List<TarefaEntity>{
-            return list;
+            return list
         }
     }
 }
