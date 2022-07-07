@@ -30,4 +30,10 @@
     <string name="falha_salvar_tarefa">Falha ao salvar a tarefa!</string>
     <string name="sucesso_editar_tarefa">Tarefa editada!</string>
     <string name="falha_editar_tarefa">Nao foi possivel editar essa tarefa!</string>
+
+    <string name="menu_item_label">Ordenar por:</string>
+    <string name="menu_item_mais_antigo">Mais antigo primeiro</string>
+    <string name="menu_item_mais_novo">Mais novo primeiro</string>
+    <string name="menu_item_data_limite">Data limite</string>
+    <string name="menu_item_alfabetica">A - Z</string>
 </resources>
