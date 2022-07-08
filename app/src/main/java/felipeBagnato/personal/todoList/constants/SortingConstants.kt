@@ -6,5 +6,7 @@ abstract class SortingConstants{
         const val MAIS_NOVO = 2
         const val DATA_LIMITE = 3
         const val ALFABETICA = 4
+
+        const val SORTING_MENU_KEY = "sortingKey"
     }
 }
