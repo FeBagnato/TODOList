@@ -23,7 +23,7 @@ abstract class TarefaSorting{
                 val dateFormat = SimpleDateFormat(context.getString(R.string.date_format))
                 var tarefa = TarefaEntity()
 
-                var menorValor = try{
+                var maiorValor = try{
                     dateFormat.parse(list[0].data)
                 }
                 catch(e: Exception){
@@ -38,17 +38,17 @@ abstract class TarefaSorting{
                         null
                     }
 
-                    if(menorValor != null){
+                    if(maiorValor != null){
                         try{
-                            if (menorValor.after(date) || menorValor == date) {
-                                menorValor = date
+                            if (maiorValor.before(date) || maiorValor == date) {
+                                maiorValor = date
                                 tarefa = i
                             }
                         }
                         catch(e: Exception){}
                     }
                     else{
-                        menorValor = try {
+                        maiorValor = try {
                             dateFormat.parse(i.data)
                         }
                         catch(e: Exception){
