@@ -14,21 +14,30 @@
 
         android:textSize="32sp"/>
 
-    <TextView
-        android:id="@+id/text_descricao"
+    <ScrollView
+        android:id="@+id/scroll_text_desc"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/text_titulo"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="28dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/round_border"
+        android:scrollbars="none"
 
-        android:textSize="24sp"/>
+        app:layout_constraintTop_toBottomOf="@id/text_titulo"
+        app:layout_constraintStart_toStartOf="parent" >
+        <TextView
+            android:id="@+id/text_descricao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+
+            android:textSize="24sp"/>
+    </ScrollView>
 
     <TextView
         android:id="@+id/text_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/text_descricao"
+        app:layout_constraintTop_toBottomOf="@+id/scroll_text_desc"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="18dp"
 
