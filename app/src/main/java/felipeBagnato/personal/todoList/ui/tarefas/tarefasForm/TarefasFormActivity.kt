@@ -7,7 +7,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
 import androidx.lifecycle.Observer
+import androidx.core.view.WindowInsetsCompat
 import felipeBagnato.personal.todoList.R
 import felipeBagnato.personal.todoList.constants.DatabaseConstants
 import java.text.SimpleDateFormat
@@ -35,6 +37,18 @@ class TarefasFormActivity: AppCompatActivity(), View.OnClickListener,
         textData = findViewById(R.id.text_data)
         textDeleteDate = findViewById(R.id.text_delete_date)
         salvarBtn = findViewById(R.id.button_salvar)
+
+        ViewCompat.setOnApplyWindowInsetsListener(nome) {view, insets ->
+            val innerPadding = insets.getInsets(
+                WindowInsetsCompat.Type.systemBars()
+            )
+
+            nome.setPadding(innerPadding.left, innerPadding.top,
+                innerPadding.right,
+                32
+            )
+            insets
+        }
 
         @SuppressLint("SimpleDateFormat")
         dataFormat = SimpleDateFormat(getString(R.string.date_format))

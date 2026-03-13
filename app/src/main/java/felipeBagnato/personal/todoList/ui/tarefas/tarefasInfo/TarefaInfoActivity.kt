@@ -8,6 +8,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Observer
 import felipeBagnato.personal.todoList.R
 import felipeBagnato.personal.todoList.constants.DatabaseConstants
@@ -33,6 +35,18 @@ class TarefaInfoActivity: AppCompatActivity(), View.OnClickListener{
         dataTarefa = findViewById(R.id.text_data)
         excluirBtn = findViewById(R.id.image_excluir)
         editarBtn = findViewById(R.id.image_edit)
+
+        ViewCompat.setOnApplyWindowInsetsListener(nomeTarefa) {view, insets ->
+            val innerPadding = insets.getInsets(
+                WindowInsetsCompat.Type.systemBars()
+            )
+
+            nomeTarefa.setPadding(innerPadding.left, innerPadding.top,
+                innerPadding.right,
+                32
+            )
+            insets
+        }
 
         supportActionBar?.setBackgroundDrawable(
             ColorDrawable(getColor(R.color.purple_500))
